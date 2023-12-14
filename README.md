@@ -6,11 +6,9 @@
 
 <br/>
 
-#### 1. Overview [[Paper]](https://arxiv.org/pdf/1704.02470.pdf) [[Project webpage]](http://people.ee.ethz.ch/~ihnatova/) [[Enhancing RAW photos]](https://github.com/aiff22/PyNET) [[Rendering Bokeh Effect]](https://github.com/aiff22/PyNET-Bokeh)
+#### 1. Overview 
 
-The provided code implements the paper that presents an end-to-end deep learning approach for translating ordinary photos from smartphones into DSLR-quality images. The learned model can be applied to photos of arbitrary resolution, while the methodology itself is generalized to 
-any type of digital camera. More visual results can be found [here](http://people.ee.ethz.ch/~ihnatova/#demo).
-
+The provided code exemplifies the implementation of a paper proposing a comprehensive deep learning method for transforming regular smartphone photos into high-quality images resembling those captured by DSLR cameras. The trained model is applicable to photos of varying resolutions, and the methodology is adaptable to diverse types of digital cameras.
 
 #### 2. Prerequisites
 
@@ -94,24 +92,9 @@ Obligatory parameters:
 
 >```model```: **```iphone```**, **```blackberry```** or **```sony```**
 
-Optional parameters:
-
->```test_subset```: **```full```**,**```small```**  &nbsp; - &nbsp; all 29 or only 5 test images will be processed <br/>
->```iteration```: **```all```** or **```<number>```**  &nbsp; - &nbsp; get visual results for all iterations or for the specific iteration,  
->&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;**```<number>```** must be a multiple of ```eval_step``` <br/>
->```resolution```: **```orig```**,**```high```**,**```medium```**,**```small```**,**```tiny```** &nbsp; - &nbsp; the resolution of the test 
-images [**```orig```** means original resolution]<br/>
->```use_gpu```: **```true```**,**```false```** &nbsp; - &nbsp; run models on GPU or CPU <br/>
->```dped_dir```: **```dped/```** &nbsp; - &nbsp; path to the folder with DPED dataset <br/>  
-
-Example:
-
-```bash
-python test_model.py model=iphone iteration=13000 test_subset=full resolution=orig use_gpu=true
-```
 <br/>
 
-#### 7. Folder structure
+#### 7. Folder orientation
 
 >```dped/```              &nbsp; - &nbsp; the folder with the DPED dataset <br/>
 >```models/```            &nbsp; - &nbsp; logs and models that are saved during the training process <br/>
@@ -130,40 +113,9 @@ python test_model.py model=iphone iteration=13000 test_subset=full resolution=or
 
 <br/>
 
-#### 8. Problems and errors
 
-```
-What if I get an error: "OOM when allocating tensor with shape [...]"?
-```
 
-&nbsp;&nbsp; Your GPU does not have enough memory. If this happens during the training process:
 
-- Decrease the size of the training batch [```batch_size```]. Note however that smaller values can lead to unstable training.
-
-&nbsp;&nbsp; If this happens while testing the models:
-
-- Run the model on CPU (set the parameter ```use_gpu``` to **```false```**). Note that this can take up to 5 minutes per image. <br/>
-- Use cropped images, set the parameter ```resolution``` to:
-
-> **```high```**   &nbsp; - &nbsp; center crop of size ```1680x1260``` pixels <br/>
-> **```medium```** &nbsp; - &nbsp; center crop of size ```1366x1024``` pixels <br/>
-> **```small```** &nbsp; - &nbsp; center crop of size ```1024x768``` pixels <br/>
-> **```tiny```** &nbsp; - &nbsp; center crop of size ```800x600``` pixels <br/>
-
-&emsp;&nbsp; The less resolution is - the smaller part of the image will be processed
-
-<br/>
-
-#### 9. Citation
-
-```
-@inproceedings{ignatov2017dslr,
-  title={DSLR-Quality Photos on Mobile Devices with Deep Convolutional Networks},
-  author={Ignatov, Andrey and Kobyshev, Nikolay and Timofte, Radu and Vanhoey, Kenneth and Van Gool, Luc},
-  booktitle={Proceedings of the IEEE International Conference on Computer Vision},
-  pages={3277--3285},
-  year={2017}
-}
 ```
 
 
